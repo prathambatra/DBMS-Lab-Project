@@ -5,6 +5,9 @@ const path = require('path')
 const passport = require('./passport/passport')
 const db = require('./db/models').db
 
+app.use('/',express.static(path.join('__dirname',public)))
+app.use(passport.intialize())
+app.use(passport.session())
 
 app.use(session({
     secret : abc,
@@ -17,9 +20,12 @@ app.use(passport.session())
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
+app.use('/login',require('../routes/login'))
+
+
 db.sync({alter: true})
 	.then(()=> {
 		console.log("Database synchronised")
 		app.listen(2626, ()=> 
-			console.log("server listenig to port 2626"))
+			console.log("server listening to port 2626"))
 	})

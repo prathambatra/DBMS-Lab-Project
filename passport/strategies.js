@@ -25,5 +25,5 @@ const ls = new Localstrategy(
 )
 
 exports = module.exports = {
-	Localstrategy
+	ls
 }
