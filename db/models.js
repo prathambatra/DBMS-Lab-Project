@@ -54,3 +54,7 @@ const User = db.define('user', {
         allowNull : true
     }
 })
+
+exports = module.exports = {
+    User,Product,Category
+}
