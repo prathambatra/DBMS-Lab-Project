@@ -1,15 +1,18 @@
 const passport = require('passport')
-const strategies = require('strategies')
-const user = require(../db/models).User
+const strategies = require('./strategies')
+const {User} = require('../db/models')
 
 passport.use(strategies.ls)
 
 passport.serializeUser((user,done) => {
+	console.log('serialize' + user.id)
 	return done(null,user.id)
 })
 
 passport.deserializeUser((userID,done) => {
-	user.find({
+	console.log('desiralize' + userID)
+
+	user.findOne({
 		where : {
 			id : userID
 		}

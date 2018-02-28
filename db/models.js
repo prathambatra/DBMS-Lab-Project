@@ -1,7 +1,7 @@
 const sequelize = require('sequelize')
 const datatypes = sequelize.DataTypes
 
-const dbconfig = require('config').DB
+const dbconfig = require('../config').DB
 
 const db = new sequelize (
     dbconfig.NAME,
@@ -43,7 +43,8 @@ Product.belongsTo(Category)
 const User = db.define('user', {
     id : {
         type : datatypes.INTEGER,
-        allowNull : false
+        allowNull : false,
+        primaryKey : true
     },
     name : {
         type : datatypes.STRING,
@@ -56,5 +57,5 @@ const User = db.define('user', {
 })
 
 exports = module.exports = {
-    User,Product,Category
+    db,User,Product,Category
 }

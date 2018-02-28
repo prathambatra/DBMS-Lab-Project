@@ -1,5 +1,5 @@
 const Localstrategy = require('passport-local').Strategy
-const user = require(../db/models).User
+const {User} = require('../db/models').User
 
 const ls = new Localstrategy(
 	(username,password,done) => {
@@ -15,7 +15,7 @@ const ls = new Localstrategy(
 				return done(null,user)
 			}
 			else {
-				return done(null,false,{message : Wrong Password})
+				return done(null,false,{message : "Wrong Password"})
 			}
 
 		}).catch((err) => {

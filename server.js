@@ -5,22 +5,21 @@ const path = require('path')
 const passport = require('./passport/passport')
 const db = require('./db/models').db
 
-app.use('/',express.static(path.join('__dirname',public)))
-app.use(passport.intialize())
-app.use(passport.session())
+app.use('/',express.static(path.join('__dirname','public')))
 
 app.use(session({
-    secret : abc,
+    secret : 'abc',
     resave : false,
     saveUninitialized : false
 }))
 
-app.use(passport.intialize())
+app.use(passport.initialize())
 app.use(passport.session())
+
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
-app.use('/login',require('../routes/login'))
+app.use('/login',require('./routes/login'))
 
 
 db.sync({alter: true})
