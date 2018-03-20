@@ -37,6 +37,8 @@ app.use(express.urlencoded({extended: true}))
 app.use('/login',require('./routes/login'))
 app.use('/products',require('./routes/product'))
 app.use('/categories',require('./routes/categories'))
+
+
 app.use('/logout',(req,res) => {
 	req.user = null
 	req.logOut()

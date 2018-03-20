@@ -17,7 +17,7 @@ const Category = db.define('category', {
         type : datatypes.STRING,
         allowNull : false
     },
-    taxperc : {
+    tax_perc : {
         type : datatypes.FLOAT,
         defaultValue : 0
     }
