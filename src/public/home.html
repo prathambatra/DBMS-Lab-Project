@@ -43,6 +43,15 @@
                               <div class="dropdown-divider"></div>
                             </div>
                           </li>
+                          {{#if userAuthenticated}}
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+            {{else}}
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+            {{/if}}
                   </ul>
               </nav>
 

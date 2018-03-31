@@ -26,12 +26,17 @@ app.use(session({
 
 app.use(passport.initialize())
 app.use(passport.session())
-/*app.use((req, res, next) => {
-    if (req.user && req.user.role && req.user.role === 'admin') {
-        req.isAdmin = true
+
+app.use((req, res, next) => {
+    if (req.user) {
+        req.isAuthenticated = true
+        req.username = req.user.username
+        if(req.user.role = 1) {
+            req.isAdmin = true
+        }
     }
     next()
-})*/
+})
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
@@ -41,6 +46,7 @@ app.use('/products', require('./routes/products'))
 app.use('/categories', require('./routes/categories'))
 app.use('/home',require('./routes/home'))
 app.use('/signup',require('./routes/signup'))
+app.use('/admin',require('./routes/admin'))
 
 app.get('/logout', (req, res) => {
     req.user = null
@@ -54,7 +60,7 @@ app.get('/', (req, res) => {
     // if (!req.user) {
     //     return res.redirect('/login')
     // }
-    return res.redirect('/signup')
+    return res.redirect('/home')
 })
 
 db.sync({alter: true})

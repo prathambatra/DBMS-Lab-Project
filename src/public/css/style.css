@@ -1,12 +1,9 @@
 .mynavbar {
-    background-color: crimson !important;
+    background-color: yellow !important;
     font-family: 'Inconsolata', monospace;
-    height: 100px;
-    font-size: 25px !important;
 }
 
 .mybrand {
-    font-size: 25px;
     color: white !important;
 }
 
@@ -19,6 +16,6 @@ mybrand:hover {
     height: 600px;
 }
 
-.my-slide {
-    height: 300px;
+.login-button {
+    background-color: aliceblue !important;
 }

@@ -1,0 +1,67 @@
+{{#if isAdmin}}
+    <h1>You are a admin</h1>
+    <form action = "/admin" method="post">
+        <div class="form-group p-4">
+            <label for="inputProductName">Product Name</label>
+            <input type="text"
+                   class="form-control"
+                   id="inputProductName"
+                   name="name"
+                   placeholder="Enter Product Name">
+        
+             <label for="inputVendorName">Vendor Name</label>
+            <input type="text"
+                   class="form-control"
+                   id="inputVendorName"
+                   name="vendor"
+                   placeholder="Enter Vendor Name">
+       
+            <label for="inputProductPrice">Price</label>
+            <input type="number"
+                   class="form-control"
+                   id="inputProductPrice"
+                   name="price"
+                   placeholder="Enter Product Price">
+
+            <label for="inputProductCategory">CAtegory name</label>
+            <input type="text"
+                   class="form-control"
+                   id="inputProductCategory"
+                   name="categoryId"
+                   placeholder="Enter Product Category">
+
+            <input type="submit" class="btn btn-success m-2" value="Add Product">
+        </div>
+    </form>
+
+    <table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>Prod. Name</th>
+        <th>Prod. Price</th>
+        <th>Vendor</th>
+        <th>Category</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each products as |product|}}
+        <tr>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}%</td>
+            <td>{{product.vendor}}</td>
+            <td>{{product.categoryId}}</td>
+            <td>
+                <button class="btn btn-sm btn-danger">
+                    DELETE
+                </button>
+            </td>
+        </tr>
+
+    {{/each}}
+    </tbody>
+
+</table>
+
+{{else}}
+    <h1>You Are not authorised to see this page</h1>
+{{/if}}
