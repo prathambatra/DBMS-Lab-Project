@@ -27,4 +27,14 @@ route.post('/',(req,res) => {
     })
 })
 
+route.post('/delete',(req,res) => {
+    ctrl.deleteProduct(req.body)
+        .then(
+            res.redirect('/admin')
+        )
+            .catch((err) => {
+                console.log(err.message)
+            })
+})
+
 exports = module.exports = route

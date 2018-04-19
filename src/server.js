@@ -31,7 +31,8 @@ app.use((req, res, next) => {
     if (req.user) {
         req.isAuthenticated = true
         req.username = req.user.username
-        if(req.user.role = 1) {
+        req.userId=req.user.id
+        if(req.user.role == 1) {
             req.isAdmin = true
         }
     }
@@ -47,6 +48,11 @@ app.use('/categories', require('./routes/categories'))
 app.use('/home',require('./routes/home'))
 app.use('/signup',require('./routes/signup'))
 app.use('/admin',require('./routes/admin'))
+app.use('/menClothes',require('./routes/menc'))
+app.use('/menFoot',require('./routes/menf'))
+app.use('/womenClothes',require('./routes/womenc'))
+app.use('/womenFoot',require('./routes/womenf'))
+app.use('/cart',require('./routes/cart'))
 
 app.get('/logout', (req, res) => {
     req.user = null
@@ -66,7 +72,7 @@ app.get('/', (req, res) => {
 db.sync({alter: true})
     .then(() => {
         console.log("Database synchronized")
-        app.listen(3000, () =>
-            console.log("Server started on http://localhost:3000"))
+        app.listen(2626, () =>
+            console.log("Server started on http://localhost:2626"))
     })
 

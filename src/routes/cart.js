@@ -1,26 +1,30 @@
 const route = require('express').Router()
+const ctrl = require('../controllers/cartitems')
 
 
 route.get('/', (req, res) => {
-    /*
-    Find from CartItems
-    Where
-        userId = req.user.id
-        and
-        quantity > 0 //step 1
-     */
+    req.body.userId = req.user.id
+    ctrl.getCartItems(req.body)
+        .then((cartItems) => {
+            res.render('cart',{
+                cartItems
+            })
+        })
+            .catch((err) => {
+                console.log(err.message)
+            })
 })
 
 route.post('/', (req, res) => {
+    req.body.userId = req.user.id
+    ctrl.addCartItem(req.body)
+        .then(
+            res.redirect('/cart')
+        )
+            .catch((err) => {
+                console.log(err.message)
+            })
 
-    /*
-    Data: {productId, quantity (signed)}
-    Insert into CartItems
-        userId = req.user.id
-        productId = req.body.productId
-        quantity += req.body.quantity
-    // either do step1, or delete if quantity = 0
-     */
 })
 
 exports = module.exports = route

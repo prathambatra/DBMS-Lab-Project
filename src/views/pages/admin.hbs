@@ -1,5 +1,6 @@
 {{#if isAdmin}}
     <h1>You are a admin</h1>
+    <p>Category codes: men clothes-0 , men footwear-1 , women clothes-2 , women footwear-3<p>
     <form action = "/admin" method="post">
         <div class="form-group p-4">
             <label for="inputProductName">Product Name</label>
@@ -23,11 +24,11 @@
                    name="price"
                    placeholder="Enter Product Price">
 
-            <label for="inputProductCategory">CAtegory name</label>
+            <label for="inputProductCategory">Category id></label>
             <input type="text"
                    class="form-control"
                    id="inputProductCategory"
-                   name="categoryId"
+                   name="category"
                    placeholder="Enter Product Category">
 
             <input type="submit" class="btn btn-success m-2" value="Add Product">
@@ -47,13 +48,14 @@
     {{#each products as |product|}}
         <tr>
             <td>{{product.name}}</td>
-            <td>{{product.price}}%</td>
+            <td>{{product.price}} Rs.</td>
             <td>{{product.vendor}}</td>
-            <td>{{product.categoryId}}</td>
+            <td>{{product.category}}</td>
             <td>
-                <button class="btn btn-sm btn-danger">
-                    DELETE
-                </button>
+                <form action="/admin/delete" method="POST">
+                    <input type="hidden" name="id" value="{{product.id}}">
+                    <input type="submit" class="btn btn-sm btn-danger" value="DELETE">
+                </form>
             </td>
         </tr>
 

@@ -6,6 +6,7 @@ exports = module.exports = {
     getAllProducts: () => {
         return Product.findAll({})
     },
+    
     addProduct: async (reqBody) => {
 
         //Validate data
@@ -18,9 +19,16 @@ exports = module.exports = {
             name: reqBody.name,
             vendor: reqBody.vendor,
             price: reqBody.price,
-            categoryId: reqBody.category
+            category: reqBody.category
         })
 
 
-    }
+    },
+    deleteProduct: async(reqBody) => {
+        Product.destroy({
+            where: {
+                id: reqBody.id
+            }
+        })   
+    }   
 }

@@ -1,1 +1,34 @@
-<h1>home</h1>
+<section class ="homecover">
+  <div class="coverheading">
+    More than 1000 New Products <br>
+    <button type="button" class="ml-5 ml-5 btn btn-primary">SHOP NOW</button>
+  </div>
+</section>
+
+<section class="category-box">
+    <div class="men-box">
+      <div class="box-content">
+        MEN'S COLLECTION
+      </div>
+    </div>
+    <div class="women-box">
+        <div class="box-content">
+            WOMEN'S COLLECTION
+          </div>
+    </div>
+</section>
+{{#each products as |product|}}
+    <div class="card">
+  <div class="card-header">
+    {{product.name}}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{product.price}} Rs.</h5>
+    <form method="POST" action="/cart">
+        <input type="hidden" name="productId" value="{{product.id}}">
+        <input type="hidden" name="price" value="{{product.price}}">
+        <input type="submit" value="ADD TO CART">
+    </form>
+  </div>
+</div>
+{{/each}}

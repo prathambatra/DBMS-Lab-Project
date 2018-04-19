@@ -12,17 +12,6 @@ const db = new Sequelize(
     }
 )
 
-const Category = db.define('category', {
-    name: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    tax_perc: {
-        type: DataTypes.FLOAT,
-        defaultValue: 0
-    }
-})
-
 const Product = db.define('product', {
     name: {
         type: DataTypes.STRING,
@@ -35,10 +24,17 @@ const Product = db.define('product', {
     price: {
         type: DataTypes.FLOAT,
         defaultValue: 0
+    },
+    category: {
+        type: DataTypes.INTEGER,
+        allowNull:false
+    },
+    id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey:true
     }
 })
-
-Product.belongsTo(Category)
 
 const User= db.define('users', {
     id: {
@@ -73,7 +69,6 @@ User.hasMany(CartItem)
 
 exports = module.exports = {
     db,
-    Category,
     Product,
     User,
     CartItem

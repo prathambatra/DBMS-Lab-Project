@@ -27,6 +27,10 @@ route.post('/', (req, res) => {
         )
 })
 
+route.post('/delete',(req,res) => {
+    ctrl.deleteProduct()
+})
+
 
 
 exports = module.exports = route
