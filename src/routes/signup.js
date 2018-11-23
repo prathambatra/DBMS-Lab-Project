@@ -12,7 +12,6 @@ route.post('/', (req, res) => {
     
     ctrl.addUser(req.body)
         .then((addedUser) =>
-            // res.status(201).json(addedCategory)
             res.redirect('/home')
         )
         .catch((err) =>

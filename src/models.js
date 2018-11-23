@@ -4,11 +4,16 @@ const DataTypes = Sequelize.DataTypes
 const dbConfig = require('../config').DB
 
 const db = new Sequelize(
-    dbConfig.NAME,
-    dbConfig.USERNAME,
-    dbConfig.PASSWORD,
+    'testdb',
+    'testuser',
+    'testpass',
     {
-        dialect: 'mysql'
+        dialect: 'mysql',
+        host: 'localhost',
+        pool: {
+            min:0,
+            max:5,
+        }
     }
 )
 

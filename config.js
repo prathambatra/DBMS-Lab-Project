@@ -1,9 +1,9 @@
 
 exports = module.exports = {
     "DB": {
-        "NAME": "shopdb",
-        "USERNAME": "shopuser",
-        "PASSWORD": "ABCabc123!@#",
+        "NAME": "gramleydb",
+        "USERNAME": "prathambatra",
+        "PASSWORD": "pratham999",
         "HOST": "localhost"
     },
     "ONEAUTH": {

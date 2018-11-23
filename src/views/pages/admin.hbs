@@ -41,7 +41,7 @@
         <th>Prod. Name</th>
         <th>Prod. Price</th>
         <th>Vendor</th>
-        <th>Category</th>
+        <th>ID</th>
     </tr>
     </thead>
     <tbody>
@@ -50,7 +50,7 @@
             <td>{{product.name}}</td>
             <td>{{product.price}} Rs.</td>
             <td>{{product.vendor}}</td>
-            <td>{{product.category}}</td>
+            <td>{{product.id}}</td>
             <td>
                 <form action="/admin/delete" method="POST">
                     <input type="hidden" name="id" value="{{product.id}}">

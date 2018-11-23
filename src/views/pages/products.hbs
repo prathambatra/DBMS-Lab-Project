@@ -1,0 +1,38 @@
+<div class="breadcumb_area bg-img my-2" style="background-image: url(images/breadcumb.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="page-title text-center">
+                        <h2>All Products</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+{{#each products as |product|}}
+
+    <div class="col-12 col-sm-6 col-lg-4">
+        <div class="single-product-wrapper">
+            <div class="product-img">
+                <img src="images/productimg/{{product.id}}.jpg" alt="">
+                                        
+                <img class="hover-img" src="images/productimg/{{product.id}}.jpg" alt="">
+
+                <div class="product-favourite">
+                    <a href="#" class="favme fa fa-heart"></a>
+                </div>
+            </div>
+
+             <div class="product-description">
+                <span>{{ product.vendor }}</span>
+                <h6 style="display:inline">{{ product.name }}</h6>
+                <p class="product-price">Price : {{ product.price }}</p>
+                    <div class="add-to-cart-btn" style="display:inline">
+                        <a href="#" class="btn essence-btn">Add to Cart</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+{{/each}}

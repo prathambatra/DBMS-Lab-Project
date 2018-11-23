@@ -43,16 +43,10 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
 app.use('/login', require('./routes/login'))
-app.use('/products', require('./routes/products'))
-app.use('/categories', require('./routes/categories'))
 app.use('/home',require('./routes/home'))
 app.use('/signup',require('./routes/signup'))
 app.use('/admin',require('./routes/admin'))
-app.use('/menClothes',require('./routes/menc'))
-app.use('/menFoot',require('./routes/menf'))
-app.use('/womenClothes',require('./routes/womenc'))
-app.use('/womenFoot',require('./routes/womenf'))
-app.use('/cart',require('./routes/cart'))
+app.use('/products',require('./routes/products'))
 
 app.get('/logout', (req, res) => {
     req.user = null
