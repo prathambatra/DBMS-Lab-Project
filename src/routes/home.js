@@ -8,6 +8,7 @@ route.get('/',(req,res) => {
                 products: products,
                 isAuthenticated: req.isAuthenticated,
                 username: req.username,
+                id:req.userId
             })
         })
 })

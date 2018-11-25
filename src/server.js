@@ -47,6 +47,7 @@ app.use('/home',require('./routes/home'))
 app.use('/signup',require('./routes/signup'))
 app.use('/admin',require('./routes/admin'))
 app.use('/products',require('./routes/products'))
+app.use('/cart',require('./routes/cart'))
 
 app.get('/logout', (req, res) => {
     req.user = null

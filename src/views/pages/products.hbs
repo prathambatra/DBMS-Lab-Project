@@ -25,11 +25,15 @@
             </div>
 
              <div class="product-description">
-                <span>{{ product.vendor }}</span>
+                <span>{{ userId }}</span>
                 <h6 style="display:inline">{{ product.name }}</h6>
                 <p class="product-price">Price : {{ product.price }}</p>
                     <div class="add-to-cart-btn" style="display:inline">
-                        <a href="#" class="btn essence-btn">Add to Cart</a>
+                        <form action="/cart" method="POST">
+                            <input type="hidden" name="productId" value="{{product.id}}">
+                            <input type="hidden" name="price" value="{{product.price}}">
+                           <input type="submit" class="btn essence-btn" value="Add To Cart">
+                        </form>
                     </div>
             </div>
         </div>

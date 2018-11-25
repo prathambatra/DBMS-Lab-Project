@@ -2,10 +2,12 @@
 (function ($) {
     "use strict";
 
+    console.log("Script loaded")
+
     
     /*==================================================================
     [ Validate ]*/
-    var input = $('.validate-input .input100');
+    /*var input = $('.validate-input .input100');
 
     $('.validate-form').on('submit',function(){
         var check = true;
@@ -50,7 +52,22 @@
         var thisAlert = $(input).parent();
 
         $(thisAlert).removeClass('alert-validate');
+    }*/
+
+   let addToCart = function (/*productId,userId,productPrice*/) {
+        /*$.post('/cart',{
+            userId: userId,
+            productId: productId,
+            price: productPrice
+        },function(data) {
+            if(!data.success) {
+                throw new alert('You Must login first')
+            }
+        })*/
+        console.log('function called')
     }
+
+    console.log('Script end')
     
     
 
